@@ -1,0 +1,22 @@
+  
+  <mat-card class="example-card">
+    <mat-card-title>Editar Autor</mat-card-title>
+    <mat-card-subtitle>Edite los datos y luego presione el botón Guardar</mat-card-subtitle>
+    <mat-card-content>
+     
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Codigo</mat-label>
+            <input matInput placeholder="Codigo" value="{{id}}" readonly="true">
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <textarea matInput placeholder="Escriba el nomnbre del autor" [(ngModel)]="nombre" name="nombre"></textarea>
+          </mat-form-field>
+      
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary"  (click)="guardarAutor()">Guardar</button>
+      <button mat-raised-button routerLink="/consultarautor">Volver</button>
+    </mat-card-actions>
+  </mat-card>

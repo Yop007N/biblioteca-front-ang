@@ -1,0 +1,52 @@
+<mat-card class="example-card">
+    <mat-card-title>Consultar datos de Ciudades</mat-card-title>
+    <mat-card-content>
+  
+      <button mat-button color="primary" routerLink="/editarciudad/0">
+        <span class="material-icons">add</span>Nuevo
+      </button>
+  
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+        <!-- Columna de codigo -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef> Codigo </th>
+          <td mat-cell *matCellDef="let element "> {{element.codigo}} </td>
+        </ng-container>
+  
+        <!-- Columna de descripción -->
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+        </ng-container>
+  
+        <!-- Columna de Acciones -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Acciones</th>
+          <td mat-cell *matCellDef="let element">
+  
+            <button mat-button color="primary" routerLink="/editarciudad/{{element.codigo}}">
+  
+              <i class="material-icons">edit</i>
+  
+            </button>
+
+            <button mat-button color="primary" (click)='borrar(element.codigo)'>
+  
+              <i class="material-icons">delete</i>
+  
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  
+      </table>
+  
+      <mat-paginator class="example-paginator" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+      </mat-paginator>
+    </mat-card-content>
+  
+  </mat-card>
